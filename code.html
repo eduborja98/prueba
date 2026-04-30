@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Work+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#301400",
+                    "inverse-on-surface": "#f0f0f3",
+                    "background": "#f9f9fc",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-highest": "#e2e2e5",
+                    "surface-container": "#eeeef0",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed-dim": "#aec6ff",
+                    "secondary": "#3c5d9c",
+                    "on-tertiary-container": "#383b3d",
+                    "secondary-fixed": "#d8e2ff",
+                    "primary-fixed": "#ffdcc6",
+                    "on-tertiary-fixed-variant": "#44474a",
+                    "on-primary-container": "#5f2c00",
+                    "outline": "#8b7263",
+                    "on-tertiary-fixed": "#191c1e",
+                    "surface": "#f9f9fc",
+                    "on-primary-fixed-variant": "#723700",
+                    "primary-fixed-dim": "#ffb785",
+                    "tertiary": "#5c5f61",
+                    "on-secondary-fixed": "#001a42",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c4c7ca",
+                    "on-background": "#1a1c1e",
+                    "inverse-primary": "#ffb785",
+                    "on-secondary-fixed-variant": "#224583",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#e8e8ea",
+                    "on-surface": "#1a1c1e",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#954a00",
+                    "surface-dim": "#dadadc",
+                    "primary": "#954a00",
+                    "primary-container": "#ff8200",
+                    "outline-variant": "#dec1af",
+                    "surface-container-low": "#f3f3f6",
+                    "on-error": "#ffffff",
+                    "surface-variant": "#e2e2e5",
+                    "tertiary-container": "#a2a5a8",
+                    "on-surface-variant": "#574235",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#244885",
+                    "secondary-container": "#99b8fe",
+                    "inverse-surface": "#2f3133",
+                    "surface-bright": "#f9f9fc",
+                    "tertiary-fixed": "#e0e3e6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "section-gap": "96px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Work Sans"],
+                    "label-bold": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "display-xl": ["Work Sans"],
+                    "headline-md": ["Work Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-border {
+            position: relative;
+        }
+        .kinetic-border::after {
+            content: '';
+            position: absolute;
+            top: -24px;
+            left: 0;
+            width: 48px;
+            height: 4px;
+            background-color: #ff8200;
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-white text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar Section -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+<div class="flex items-center gap-3">
+<img src="logo primax.png" alt="Logo Primax" class="h-10 object-contain">
+<span class="text-xl md:text-2xl font-black tracking-tighter text-orange-600 hidden sm:inline-block">Autocentro La Victoria</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 font-semibold hover:text-orange-600 transition-colors duration-300 font-sans text-sm tracking-wide uppercase" href="#about">Quiénes somos</a>
+<a class="text-slate-600 font-semibold hover:text-orange-600 transition-colors duration-300 font-sans text-sm tracking-wide uppercase" href="#autocentro">Autocentro</a>
+<a class="text-slate-600 font-semibold hover:text-orange-600 transition-colors duration-300 font-sans text-sm tracking-wide uppercase" href="#lodging">Hospedaje</a>
+<a href="#contact" class="bg-primary-container text-white px-6 py-2 rounded font-label-bold transition-transform active:scale-95 hover:bg-orange-600 flex items-center">
+        Reservar Ahora
+    </a>
+</nav>
+<button id="mobile-menu-btn" class="md:hidden flex items-center text-slate-600 p-2 focus:outline-none">
+    <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<!-- Mobile Navigation Menu -->
+<div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-md flex-col md:hidden">
+    <a class="mobile-link px-6 py-4 text-slate-600 font-semibold hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300 font-sans text-base tracking-wide uppercase border-b border-slate-50" href="#about">Quiénes somos</a>
+    <a class="mobile-link px-6 py-4 text-slate-600 font-semibold hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300 font-sans text-base tracking-wide uppercase border-b border-slate-50" href="#autocentro">Autocentro</a>
+    <a class="mobile-link px-6 py-4 text-slate-600 font-semibold hover:bg-orange-50 hover:text-orange-600 transition-colors duration-300 font-sans text-base tracking-wide uppercase border-b border-slate-50" href="#lodging">Hospedaje</a>
+    <a class="mobile-link px-6 py-4 bg-primary-container text-white font-label-bold hover:bg-orange-600 transition-colors text-center text-base" href="#contact">Reservar Ahora</a>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-6 pt-16 pb-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<div class="kinetic-border">
+<h1 class="font-display-xl text-4xl md:text-display-xl text-on-surface leading-tight">Energía que nos mueve.</h1>
+</div>
+<p class="font-body-lg text-body-lg text-tertiary max-w-lg">
+                Innovación y servicio excepcional en cada parada. Descubre la red de estaciones de servicio líder diseñada para acompañar tu camino con la máxima eficiencia.
+            </p>
+</div>
+<div class="relative">
+<div class="aspect-[4/3] rounded-xl overflow-hidden shadow-2xl">
+<img alt="Estación Primax" class="w-full h-full object-cover" data-alt="Modern and clean Primax gas station at sunset with glowing orange corporate lighting and sleek architectural design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQChDz6RvZEKnPoUfu4P_Vt2_jFQSf2Tv3ze2iQsQ6hbeas6jHeYqXDVyTNBj4o3V6k7CHrGntnDosPWewhE9sDu2_nZ_54tgg2_1bHrOj9Tf4UpQ4ljqEVxcorjaZMjh7xdsPLOJDAnSlbOtHxXdnlGNVf2JvDOnMt6OASi29m1Lka-Qk625VoZIfjpynHDV488-6rF6H5J3SIG1o7TjkQOGerH4Ra9cNs17pNDM-OBiN91SzNEwJuUobZmM9YBX21aTX_l7jVQ"/>
+</div>
+<div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl rounded-lg hidden lg:block border border-slate-100">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-container flex items-center justify-center rounded-full">
+<span class="material-symbols-outlined text-secondary" data-icon="electric_bolt">electric_bolt</span>
+</div>
+<div>
+<p class="font-label-bold text-on-surface">Nueva Red EV</p>
+<p class="text-xs text-tertiary">Carga rápida disponible</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiénes Somos (Bento Layout) -->
+<section class="bg-surface py-16 md:py-[96px]" id="about">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<span class="text-primary-container font-label-bold uppercase tracking-widest text-sm md:text-base">Corporativo</span>
+<h2 class="font-headline-lg text-3xl md:text-headline-lg mt-2">Quiénes somos</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2 bg-white p-8 rounded-xl border border-slate-100 flex flex-col justify-between min-h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="handshake">handshake</span>
+<h3 class="font-headline-md text-headline-md mb-4">Liderazgo Regional</h3>
+<p class="font-body-md text-body-md text-tertiary">Somos la red de estaciones de servicio más importante de la región, enfocada en brindar una experiencia de usuario premium y combustibles de la más alta calidad.</p>
+</div>
+<div class="pt-8 border-t border-slate-50 mt-8">
+<div class="flex gap-12">
+<div>
+<p class="text-3xl font-bold text-orange-600">2000+</p>
+<p class="text-sm text-tertiary">Estaciones</p>
+</div>
+<div>
+<p class="text-3xl font-bold text-orange-600">4</p>
+<p class="text-sm text-tertiary">Países</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary-container p-8 rounded-xl text-white flex flex-col justify-end min-h-[300px] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-9xl" data-icon="star">star</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Visión Primax</h3>
+<p class="font-body-md opacity-90">Ser el aliado estratégico de cada conductor, impulsando el progreso a través de energía confiable.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Autocentro La Victoria Section -->
+<section class="py-16 md:py-[96px] bg-white overflow-hidden" id="autocentro">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-12">
+<span class="text-primary-container font-label-bold uppercase tracking-widest text-sm md:text-base">Especialistas en tu vehículo</span>
+<h2 class="font-headline-lg text-3xl md:text-headline-lg mt-2">Autocentro La Victoria</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-start">
+<div class="space-y-8">
+<div class="prose prose-slate">
+<p class="font-body-lg text-body-lg text-tertiary">
+                            [Placeholder: Introducción detallada sobre los servicios especializados de Autocentro La Victoria. Menciona la trayectoria, la tecnología utilizada y el compromiso con la seguridad de los clientes.]
+                        </p>
+<p class="font-body-md text-body-md text-tertiary mt-4">
+                            [Placeholder: Información sobre horarios de atención, dirección exacta en La Victoria y detalles sobre los especialistas certificados que trabajan en el centro.]
+                        </p>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="p-4 rounded-xl border border-orange-100 bg-orange-50/30">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="build">build</span>
+<p class="font-label-bold text-on-surface">Servicio Técnico</p>
+<p class="text-xs text-tertiary">[Info Placeholder]</p>
+</div>
+<div class="p-4 rounded-xl border border-orange-100 bg-orange-50/30">
+<span class="material-symbols-outlined text-primary mb-2" data-icon="minor_crash">minor_crash</span>
+<p class="font-label-bold text-on-surface">Mantenimiento</p>
+<p class="text-xs text-tertiary">[Info Placeholder]</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+<img alt="Autocentro Vista 1" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="High-tech automotive diagnostic bay in a clean, modern workshop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0oP9zX-wYF_e_G0X7vR_z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z_Z"/>
+</div>
+<div class="aspect-square bg-slate-100 rounded-xl overflow-hidden group">
+<img alt="Autocentro Vista 2" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Close-up of a professional mechanic working with precision tools" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmEcfyRONYs7WGS2rlwQY57fsXoxL3AkOVEYyYEKa7moHT-vx3mHbf5rGBgZ06QVDj07XMtNj7UlQYkBFfWykyQK-z-NtiZdQAWJhcwTc24gTkwkjYw3Ul9plcegJJtWkW6TcwrhXhFkDA1CHyM6jwXXWED6j2DhHYh_pb784SbQPpJZTNJroRsmEbqKgq_3I7MJvtBLzAE7qbSN1PqConpD3MKmJyMpQxiFIouqgdhnXbLZOQo3XDlhdz78czAlhYn4UR_Y5jDA"/>
+</div>
+<div class="col-span-2 aspect-[16/9] bg-slate-100 rounded-xl overflow-hidden group">
+<img alt="Autocentro Fachada" class="w-full h-full object-cover transition-transform group-hover:scale-105" data-alt="Exterior shot of a bright, modern Primax Autocentro service facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQChDz6RvZEKnPoUfu4P_Vt2_jFQSf2Tv3ze2iQsQ6hbeas6jHeYqXDVyTNBj4o3V6k7CHrGntnDosPWewhE9sDu2_nZ_54tgg2_1bHrOj9Tf4UpQ4ljqEVxcorjaZMjh7xdsPLOJDAnSlbOtHxXdnlGNVf2JvDOnMt6OASi29m1Lka-Qk625VoZIfjpynHDV488-6rF6H5J3SIG1o7TjkQOGerH4Ra9cNs17pNDM-OBiN91SzNEwJuUobZmM9YBX21aTX_l7jVQ"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hospedaje Section -->
+<section class="py-16 md:py-[96px] max-w-7xl mx-auto px-6 bg-surface" id="lodging">
+<div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+<div class="order-2 md:order-1 relative">
+<div class="aspect-square rounded-full overflow-hidden border-8 border-surface-container">
+<img alt="Hospedaje" class="w-full h-full object-cover" data-alt="Cozy and modern boutique hotel room interior with warm ambient lighting and minimalist decor for travelers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBinsuHRxkrgZ2t-Rg1u9oOeJONrAnQTF8Bz9rt97vGZsYaDaRDPjHPP6OfCH_BATsmO-uGh9NuwtNVRN2gl38aNCsbtrMncncN7ZQAufNxbmsSZfUSXsSJYO3VfEGk3di_JjU8j39iG9RRW4w0G-hkiHi18H0mHjZZ7RRsEYhqmQZG_BBW44L1SCiKNkodxOttQV3dWFmk4Pl8tiuO79P0Vka2I8xLQTo8Kkqm3y4jW2ldwgYW3FRTBg5MZT5dmklLU_JzFvZ5GA"/>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-6 text-center md:text-left">
+<span class="text-primary-container font-label-bold uppercase tracking-widest text-sm md:text-base">Servicios en Ruta</span>
+<h2 class="font-headline-lg text-3xl md:text-headline-lg">Hospedaje de Nivel</h2>
+<p class="font-body-lg text-body-lg text-tertiary">
+                    No solo recargamos tu vehículo, también recargamos tu energía. Nuestras estaciones seleccionadas cuentan con servicios de hospedaje de alta gama para que tu viaje sea placentero y seguro.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Habitaciones cómodas y seguras</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Wi-Fi de alta velocidad gratuito</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-500" data-icon="check_circle">check_circle</span>
+<span class="font-body-md">Con tienda 24/7</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block bg-secondary text-white px-8 py-3 rounded font-label-bold hover:bg-on-secondary-fixed-variant transition-colors">
+                    Reservar Habitación
+                </a>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-16 md:py-[96px] max-w-7xl mx-auto px-6" id="contact">
+<div class="bg-white border border-slate-100 rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2">
+<div class="p-8 md:p-16 bg-slate-900 text-white flex flex-col justify-between">
+<div>
+<h2 class="font-headline-lg text-3xl md:text-headline-lg mb-4">Planifica tu Estancia</h2>
+<p class="font-body-lg text-body-lg opacity-70 mb-4">Completa este sencillo formulario y te confirmaremos en minutos vía WhatsApp.</p>
+<div class="bg-orange-500/20 border border-orange-500/30 p-4 rounded-lg flex items-start gap-3">
+<span class="material-symbols-outlined text-orange-400">warning</span>
+<p class="text-sm">Recuerda: Nuestro hospedaje es <strong>exclusivo para adultos</strong> (transportistas y viajeros en Tuluá).</p>
+</div>
+</div>
+<div class="space-y-6 mt-12">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-orange-500" data-icon="mail">mail</span>
+<div>
+<p class="font-label-bold">Email</p>
+<p class="text-tertiary-fixed-dim">autocentro07@hotmail.co</p>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-orange-500" data-icon="phone">phone</span>
+<div>
+<p class="font-label-bold">Teléfono</p>
+<p class="text-tertiary-fixed-dim">+51 1 611 0000</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-8 md:p-16">
+<form id="booking-form" class="space-y-6">
+    <div class="space-y-2">
+        <label class="font-label-bold text-sm uppercase" for="fullName">Nombre Completo</label>
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                <span class="material-symbols-outlined text-sm">person</span>
+            </span>
+            <input class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 transition-all outline-none" id="fullName" placeholder="Ej: Juan Pérez" required type="text"/>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-2">
+            <label class="font-label-bold text-sm uppercase" for="checkIn">Fecha de Entrada</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                    <span class="material-symbols-outlined text-sm">calendar_month</span>
+                </span>
+                <input class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 transition-all outline-none" id="checkIn" required type="date"/>
+            </div>
+        </div>
+        <div class="space-y-2">
+            <label class="font-label-bold text-sm uppercase" for="parking">¿Parqueadero?</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                    <span class="material-symbols-outlined text-sm">local_shipping</span>
+                </span>
+                <select class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 transition-all outline-none appearance-none" id="parking" required>
+                    <option value="" disabled selected>Selecciona...</option>
+                    <option value="Sí, mula">Sí, mula</option>
+                    <option value="Sí, camión">Sí, camión</option>
+                    <option value="No preciso">No preciso</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="space-y-2">
+            <label class="font-label-bold text-sm uppercase" for="roomType">Tipo de Habitación</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                    <span class="material-symbols-outlined text-sm">meeting_room</span>
+                </span>
+                <select class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 transition-all outline-none appearance-none" id="roomType" required>
+                    <option value="" disabled selected>Selecciona un tipo...</option>
+                    <option value="Sencilla">Habitación Sencilla</option>
+                    <option value="Doble">Habitación Doble</option>
+                </select>
+            </div>
+        </div>
+        <div class="space-y-2">
+            <label class="font-label-bold text-sm uppercase" for="roomNumber">Seleccionar Número</label>
+            <div class="relative">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+                    <span class="material-symbols-outlined text-sm">numbers</span>
+                </span>
+                <select class="w-full pl-10 pr-4 py-3 border border-slate-200 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-100 transition-all outline-none appearance-none" id="roomNumber" required>
+                    <option value="" disabled selected>Cargando opciones...</option>
+                </select>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">Las habitaciones 4 y 14 están excluidas.</p>
+        </div>
+    </div>
+
+    <div class="flex items-start gap-3 mt-4">
+        <input type="checkbox" id="terms" required class="mt-1 h-4 w-4 accent-orange-600 focus:ring-orange-500 border-slate-300 rounded cursor-pointer">
+        <label for="terms" class="text-sm text-slate-600 leading-tight">
+            Acepto el <a href="#" class="text-orange-600 hover:underline">tratamiento de datos personales</a> y condiciones de estadía. <br/> <strong>Exclusivo para adultos.</strong>
+        </label>
+    </div>
+
+    <button class="w-full bg-[#25D366] text-white py-4 rounded-lg font-label-bold uppercase tracking-widest hover:bg-[#20b858] transition-all active:scale-[0.98] flex items-center justify-center gap-2 mt-6" type="submit">
+        Confirmar Reserva por WhatsApp
+        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+    </button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Section -->
+<footer class="bg-white border-t border-slate-100 w-full py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center mt-16 md:mt-[96px]">
+<div>
+<span class="text-xl font-bold text-slate-900 block mb-4">PRIMAX</span>
+<p class="font-sans text-sm text-slate-500 max-w-md">© 2024 Primax. Energía que nos mueve. Líderes en el mercado de energía de la región, comprometidos con el servicio de excelencia.</p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="text-slate-500 hover:text-orange-600 transition-colors font-sans text-sm" href="#about">Quiénes somos</a>
+<a class="text-slate-500 hover:text-orange-600 transition-colors font-sans text-sm" href="#autocentro">Autocentro</a>
+<a class="text-slate-500 hover:text-orange-600 transition-colors font-sans text-sm" href="#lodging">Hospedaje</a>
+<a class="text-slate-500 hover:text-orange-600 transition-colors font-sans text-sm" href="#">Aviso de Privacidad</a>
+</div>
+</footer>
+<script src="app.js"></script>
+</body></html>
